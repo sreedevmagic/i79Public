@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth dark">
       <body className="min-h-screen bg-background text-foreground antialiased">
         <Navbar />
         <main>{children}</main>

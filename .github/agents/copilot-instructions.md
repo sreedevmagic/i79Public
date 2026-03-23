@@ -80,8 +80,8 @@ Navbar must include:
 
 Buttons:
 
-- Sign In → https://app.i79.ai/login
-- Get Started → https://app.i79.ai/signup
+- Sign In → https://vengage.i79.ai
+- Get Started → https://vengage.i79.ai/register
 
 ---
 

@@ -25,7 +25,7 @@ export default function EngageHero() {
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <Button
-              href="https://app.i79.ai/signup"
+              href="https://vengage.i79.ai/register"
               variant="primary"
               size="lg"
             >
@@ -33,7 +33,7 @@ export default function EngageHero() {
               <ArrowRight size={16} className="ml-2" />
             </Button>
             <Button
-              href="https://app.i79.ai/login"
+              href="https://vengage.i79.ai"
               variant="outline"
               size="lg"
             >

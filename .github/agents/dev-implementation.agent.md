@@ -75,8 +75,8 @@ This is a **marketing + product website**, NOT a SaaS application.
 
 # External Links
 
-- Login → https://app.i79.ai/login
-- Signup → https://app.i79.ai/signup
+- Login → https://vengage.i79.ai
+- Signup → https://vengage.i79.ai/register
 
 ---
 

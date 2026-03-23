@@ -126,7 +126,7 @@ Use ONLY Tailwind tokens mapped to your CSS variables:
 ### Actions
 
 - Sign In → `https://vengage.i79.ai`
-- Get Started → `https://vengae.i79.ai/signup`
+- Get Started → `https://vengage.i79.ai/register`
 
 ---
 
@@ -428,12 +428,10 @@ Split:
 ## 🔹 Contact Info
 
 i79.ai Technologies LLC  
-Abu Dhabi Global Market (ADGM)  
 Abu Dhabi, UAE  
 
 Email: contact@i79.ai  
-Phone: +971 2 000 0000  
-
+Phone: +971 56 970 8658
 ---
 
 ## 🔹 Form

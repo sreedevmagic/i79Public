@@ -1,8 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
 
 @layer base {
   :root {
@@ -45,7 +47,7 @@
     --gradient-primary: linear-gradient(135deg, hsl(173, 100%, 23%), hsl(173, 90%, 35%));
     --gradient-success: linear-gradient(135deg, hsl(145, 65%, 45%), hsl(145, 65%, 55%));
     --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%), hsl(173, 15%, 98%));
-
+    
     --shadow-sm: 0 1px 2px 0 hsl(173 30% 15% / 0.05);
     --shadow-md: 0 4px 6px -1px hsl(173 30% 15% / 0.07), 0 2px 4px -1px hsl(173 30% 15% / 0.05);
     --shadow-lg: 0 10px 15px -3px hsl(173 30% 15% / 0.08), 0 4px 6px -2px hsl(173 30% 15% / 0.05);
@@ -92,74 +94,21 @@
     --gradient-primary: linear-gradient(135deg, hsl(173, 80%, 35%), hsl(173, 70%, 45%));
     --gradient-success: linear-gradient(135deg, hsl(145, 65%, 50%), hsl(145, 65%, 60%));
     --gradient-card: linear-gradient(180deg, hsl(173, 20%, 12%), hsl(173, 20%, 10%));
-
+    
     --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.15);
     --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.2), 0 2px 4px -1px hsl(0 0% 0% / 0.15);
     --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.25), 0 4px 6px -2px hsl(0 0% 0% / 0.2);
     --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.3), 0 10px 10px -5px hsl(0 0% 0% / 0.25);
   }
+}
 
+@layer base {
   * {
     @apply border-border;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
   body {
     @apply bg-background text-foreground;
-    font-family: "Inter", system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     transition: background-color 0.2s ease, color 0.2s ease;
-  }
-}
-
-@layer utilities {
-  .gradient-text {
-    background: linear-gradient(
-      135deg,
-      hsl(var(--primary)),
-      hsl(var(--accent))
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .gradient-border {
-    position: relative;
-    border: 1px solid transparent;
-    background-clip: padding-box;
-  }
-
-  .gradient-border::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    background: linear-gradient(
-      135deg,
-      hsl(var(--primary) / 0.6),
-      hsl(var(--accent) / 0.6)
-    );
-    z-index: -1;
-  }
-
-  .glow-primary {
-    box-shadow: 0 0 40px hsl(var(--primary) / 0.15);
-  }
-
-  .glow-accent {
-    box-shadow: 0 0 40px hsl(var(--accent) / 0.15);
-  }
-
-  .section-padding {
-    @apply py-24 px-6;
-  }
-
-  .container-max {
-    @apply max-w-6xl mx-auto;
   }
 }

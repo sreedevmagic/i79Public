@@ -1,0 +1,106 @@
+# Deploys the i79 public marketing website to Azure Static Web Apps.
+# Next.js is configured with output: "export", so the build produces
+# a fully static site in the `out/` directory.
+
+name: Azure Static Web App - Build and Deploy
+
+on:
+  release:
+    types: [published]          # Trigger on a new GitHub Release being published
+  workflow_dispatch:            # Allow manual trigger from GitHub UI
+
+permissions:
+  id-token: write               # Required for federated identity login (OIDC)
+  contents: read                # Required for actions/checkout
+
+env:
+  AZURE_RESOURCE_GROUP: rg-i79-prod           # Azure Resource Group name
+  AZURE_LOCATION: eastus2                     # Azure region for deployment
+  AZURE_STATIC_WEB_APP_NAME: i79-public-main  # Name of the Static Web App
+  NODE_VERSION: '18.x'                        # Node.js version to use
+  BUILD_OUTPUT: 'out'                         # Next.js static export output directory
+
+jobs:
+  check_and_deploy:
+    name: Check, Build and Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js static export
+        run: npm run build
+        # Runs next build + postbuild (next-sitemap).
+        # Output lands in ./out as configured by next.config.mjs (output: "export").
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Check if Static Web App exists
+        id: check-swa
+        run: |
+          echo "Checking if Static Web App '${{ env.AZURE_STATIC_WEB_APP_NAME }}' exists..."
+
+          SWA_EXISTS=$(az staticwebapp show \
+            --name ${{ env.AZURE_STATIC_WEB_APP_NAME }} \
+            --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+            --query "name" -o tsv 2>/dev/null || echo "")
+
+          if [ -z "$SWA_EXISTS" ]; then
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "Static Web App does not exist. Will create it."
+          else
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "Static Web App already exists: $SWA_EXISTS"
+          fi
+
+      - name: Create Static Web App
+        if: steps.check-swa.outputs.exists == 'false'
+        run: |
+          echo "Creating Static Web App '${{ env.AZURE_STATIC_WEB_APP_NAME }}'..."
+          az staticwebapp create \
+            --name ${{ env.AZURE_STATIC_WEB_APP_NAME }} \
+            --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+            --location ${{ env.AZURE_LOCATION }} \
+            --sku Free \
+            --tags environment=production app=i79-public
+          echo "Static Web App created successfully!"
+
+      - name: Get Static Web App deployment token
+        id: get-token
+        run: |
+          echo "Retrieving deployment token..."
+          DEPLOYMENT_TOKEN=$(az staticwebapp secrets list \
+            --name ${{ env.AZURE_STATIC_WEB_APP_NAME }} \
+            --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+            --query "properties.apiKey" -o tsv)
+
+          echo "::add-mask::$DEPLOYMENT_TOKEN"
+          echo "deployment-token=$DEPLOYMENT_TOKEN" >> $GITHUB_OUTPUT
+
+      - name: Deploy to Azure Static Web App
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ steps.get-token.outputs.deployment-token }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: 'upload'
+          app_location: ${{ env.BUILD_OUTPUT }}  # Pre-built static files in out/
+          output_location: ''                    # No further build step needed
+          skip_app_build: true                   # We already built above
+
+      - name: Azure Logout
+        if: always()
+        run: az logout

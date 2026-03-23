@@ -59,7 +59,7 @@ export default function PlatformSpotlight() {
               Explore Engage
               <ArrowRight size={16} className="ml-2" />
             </Button>
-            <Button href="https://app.i79.ai/signup" variant="outline" size="md">
+            <Button href="https://vengage.i79.ai/register" variant="outline" size="md">
               Get Started Free
             </Button>
           </div>

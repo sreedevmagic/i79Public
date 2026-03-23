@@ -3,8 +3,8 @@ import Link from "next/link";
 const footerLinks = {
   Product: [
     { label: "Engage", href: "/engage" },
-    { label: "Sign In", href: "https://app.i79.ai/login" },
-    { label: "Get Started", href: "https://app.i79.ai/signup" },
+    { label: "Sign In", href: "https://vengage.i79.ai" },
+    { label: "Get Started", href: "https://vengage.i79.ai/register" },
   ],
   Company: [
     { label: "Services", href: "/services" },
@@ -30,7 +30,7 @@ export default function Footer() {
               intelligent recruitment systems.
             </p>
             <p className="mt-4 text-xs text-muted-foreground">
-              Abu Dhabi Global Market (ADGM), UAE
+              
             </p>
             <a
               href="mailto:contact@i79.ai"

@@ -19,7 +19,7 @@ const contactDetails = [
   {
     icon: MapPin,
     label: "Address",
-    value: "Abu Dhabi Global Market (ADGM)\nAbu Dhabi, UAE",
+    value: "Abu Dhabi, UAE",
   },
   {
     icon: Mail,
@@ -30,8 +30,8 @@ const contactDetails = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+971 2 000 0000",
-    href: "tel:+97120000000",
+    value: "+971 56 970 8658",
+    href: "tel:+971 56 176 4568",
   },
 ];
 
@@ -106,7 +106,7 @@ export default function ContactPage() {
               View i79 Engage
             </a>
             <a
-              href="https://app.i79.ai/signup"
+              href="https://vengage.i79.ai/register"
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               <ArrowRight size={14} />
