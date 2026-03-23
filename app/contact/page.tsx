@@ -4,16 +4,19 @@ import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import ContactForm from "@/components/contact/ContactForm";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Contact Us – i79.ai",
-  description:
-    "Get in touch with i79.ai. We're ready to help you build your AI system or answer questions about i79 Engage.",
-  openGraph: {
-    title: "Contact i79.ai",
+export const metadata: Metadata = buildMetadata(
+  {
+    title: "Contact Us – i79.ai",
     description:
-      "Reach out to our team for AI consulting, product demos, or general inquiries.",
+      "Get in touch with i79.ai. We're ready to help you build your AI system or answer questions about i79 Engage.",
+    openGraph: {
+      title: "Contact i79.ai",
+      description:
+        "Reach out to our team for AI consulting, product demos, or general inquiries.",
+    },
   },
-});
+  { canonicalPath: "/contact" }
+);
 
 const contactDetails = [
   {

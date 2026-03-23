@@ -5,16 +5,28 @@ import ServicesFullGrid from "@/components/services/ServicesFullGrid";
 import Process from "@/components/services/Process";
 import CTA from "@/components/sections/CTA";
 
-export const metadata: Metadata = buildMetadata({
-  title: "AI Consulting Services – i79.ai",
-  description:
-    "AI strategy, system development, intelligent automation, and enterprise integration. i79.ai delivers end-to-end AI consulting and production AI systems.",
-  openGraph: {
+export const metadata: Metadata = buildMetadata(
+  {
     title: "AI Consulting Services – i79.ai",
     description:
-      "From AI strategy to live deployment. i79.ai builds production-grade AI systems for enterprise.",
+      "AI strategy, system development, intelligent automation, and enterprise integration. i79.ai delivers end-to-end AI consulting and production-grade AI systems.",
+    openGraph: {
+      title: "AI Consulting Services – i79.ai",
+      description:
+        "From AI strategy to live deployment. i79.ai builds production-grade AI systems for enterprise.",
+    },
   },
-});
+  {
+    canonicalPath: "/services",
+    extraKeywords: [
+      "AI strategy consulting",
+      "AI system integration",
+      "enterprise AI deployment",
+      "AI automation services",
+      "custom AI development",
+    ],
+  }
+);
 
 export default function ServicesPage() {
   return (

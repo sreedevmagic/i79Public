@@ -3,12 +3,36 @@ import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import JsonLd from "@/components/layout/JsonLd";
 import { defaultMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = defaultMetadata;
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "i79.ai",
+  url: "https://i79.ai",
+  logo: "https://i79.ai/favicon.svg",
+  description:
+    "i79.ai is an AI consulting company building enterprise AI platforms, intelligent automation systems, and AI-powered recruitment software.",
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "contact@i79.ai",
+    contactType: "customer service",
+  },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  url: "https://i79.ai",
+  name: "i79.ai",
+  description: "Enterprise AI consulting & intelligent recruitment platforms.",
+};
 
 export default function RootLayout({
   children,
@@ -18,6 +42,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth dark">
       <body className="min-h-screen bg-background text-foreground antialiased">
+
+        {/* Structured data */}
+        <JsonLd schema={organizationSchema} />
+        <JsonLd schema={websiteSchema} />
 
         {/* Google Analytics 4 */}
         {GA_ID && (
