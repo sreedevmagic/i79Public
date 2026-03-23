@@ -34,6 +34,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# azure functions — compiled output (built by Oryx during SWA deploy)
+api/**/*.js
+api/**/*.js.map
+api/node_modules/
+api/local.settings.json
+
 # sitemap
 /public/sitemap*.xml
 /public/robots.txt
