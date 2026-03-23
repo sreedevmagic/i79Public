@@ -41,6 +41,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth dark">
+      <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
+      </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
 
         {/* Structured data */}
