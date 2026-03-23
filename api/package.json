@@ -1,0 +1,15 @@
+{
+  "name": "i79-public-api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "resend": "^3.2.0"
+  },
+  "devDependencies": {
+    "@azure/functions": "^3.5.1",
+    "typescript": "^5.4.5"
+  }
+}

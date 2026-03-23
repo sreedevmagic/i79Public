@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
+import ThemeToggle from "@/components/layout/ThemeToggle";
 import {
   Menu,
   X,
@@ -72,9 +73,9 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-lg">i79</span>
+        <Link href="/" className="flex items-center gap-2.5">
+          <div className="inline-flex items-center justify-center w-9 h-9 bg-gradient-primary rounded">
+            <span className="text-primary-foreground font-bold text-base tracking-tight">i79</span>
           </div>
           <span className="font-semibold text-lg tracking-tight">
             Intelligence, <span className="gradient-text">Engineered.</span>
@@ -129,7 +130,7 @@ export default function Navbar() {
                   {/* ── Left column: Product card ── */}
                   <div className="p-6 border-r border-border flex flex-col gap-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center flex-shrink-0">
+                      <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
                         <Video size={18} className="text-primary-foreground" />
                       </div>
                       <div>
@@ -237,13 +238,15 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-muted-foreground hover:text-foreground transition-colors"
-          onClick={() => setMobileOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            className="text-muted-foreground hover:text-foreground transition-colors"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -280,7 +283,7 @@ export default function Navbar() {
                     onClick={() => { setMobileOpen(false); setMobileProductsOpen(false); }}
                     className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
                   >
-                    <div className="w-6 h-6 rounded-md bg-gradient-primary flex items-center justify-center flex-shrink-0">
+                    <div className="w-6 h-6 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
                       <Video size={12} className="text-primary-foreground" />
                     </div>
                     <span>i79 Engage <span className="text-xs text-muted-foreground ml-1">— AI Recruitment Platform</span></span>

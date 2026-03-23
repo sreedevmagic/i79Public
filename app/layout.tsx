@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/layout/JsonLd";
+import ThemeProvider from "@/components/layout/ThemeProvider";
 import { defaultMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = defaultMetadata;
@@ -40,51 +41,58 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth dark">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
+        {/* Prevent flash: apply saved theme before first paint */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem('theme');document.documentElement.classList.toggle('dark',t?t==='dark':true);})();`,
+          }}
+        />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
+        <ThemeProvider>
+          {/* Structured data */}
+          <JsonLd schema={organizationSchema} />
+          <JsonLd schema={websiteSchema} />
 
-        {/* Structured data */}
-        <JsonLd schema={organizationSchema} />
-        <JsonLd schema={websiteSchema} />
+          {/* Google Analytics 4 */}
+          {GA_ID && (
+            <>
+              <Script
+                src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+                strategy="afterInteractive"
+              />
+              <Script id="ga4-init" strategy="afterInteractive">
+                {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${GA_ID}', { page_path: window.location.pathname });
+                `}
+              </Script>
+            </>
+          )}
 
-        {/* Google Analytics 4 */}
-        {GA_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga4-init" strategy="afterInteractive">
+          {/* Microsoft Clarity */}
+          {CLARITY_ID && (
+            <Script id="ms-clarity" strategy="afterInteractive">
               {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_ID}', { page_path: window.location.pathname });
+                (function(c,l,a,r,i,t,y){
+                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "${CLARITY_ID}");
               `}
             </Script>
-          </>
-        )}
+          )}
 
-        {/* Microsoft Clarity */}
-        {CLARITY_ID && (
-          <Script id="ms-clarity" strategy="afterInteractive">
-            {`
-              (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "${CLARITY_ID}");
-            `}
-          </Script>
-        )}
-
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
