@@ -48,7 +48,7 @@ const httpTrigger: AzureFunction = async function (
     await resend.emails.send({
       from: "i79.ai Contact Form <noreply@i79.ai>",
       to: [recipientEmail],
-      replyTo: email,
+      reply_to: email,
       subject: `New enquiry from ${safe(name)}${company ? ` — ${safe(company)}` : ""}`,
       html: `
         <div style="font-family:Inter,system-ui,sans-serif;max-width:600px;margin:0 auto;color:#0f2420;">
