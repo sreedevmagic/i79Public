@@ -18,9 +18,9 @@ export default function EngageHero() {
           </h1>
 
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            i79 Engage automates your entire hiring pipeline — candidate
-            scoring, structured AI interviews, ranked shortlists, and
-            decision-ready packs — all in one place.
+            i79 Engage is the execution layer for hiring — not just a tracker.
+            It sources, screens, interviews, and scores candidates automatically,
+            then delivers everything your team needs to decide.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">

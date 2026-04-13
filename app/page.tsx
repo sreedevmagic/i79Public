@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
 import Hero from "@/components/sections/Hero";
+import Differentiator from "@/components/sections/Differentiator";
 import ProductTeaser from "@/components/sections/ProductTeaser";
 import SocialProof from "@/components/sections/SocialProof";
 import UseCasesStrip from "@/components/sections/UseCasesStrip";
@@ -36,8 +37,9 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <SocialProof />
+      <Differentiator />
       <ProductTeaser />
+      <SocialProof />
       <UseCasesStrip />
       <PricingPreview />
       <ServicesTeaser />

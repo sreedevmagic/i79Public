@@ -23,15 +23,14 @@ export default function Hero() {
 
         {/* Heading */}
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-tight text-foreground">
-          The AI Hiring Platform That{" "}
-          <span className="gradient-text">Works End to End</span>
+          Run Your Hiring Pipeline{" "}
+          <span className="gradient-text">Automatically</span>
         </h1>
 
         {/* Subtext */}
         <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          i79 Engage scores candidates, conducts structured AI interviews, and delivers
-          ranked shortlists with decision-ready scorecards. Your team focuses on
-          the final hire.
+          Source, screen, interview, and shortlist candidates — in one
+          streamlined system. No coordination overhead. No manual first rounds.
         </p>
 
         {/* CTAs */}
