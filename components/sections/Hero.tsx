@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
+import { ArrowRight, Play } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -17,37 +18,36 @@ export default function Hero() {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium mb-8">
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          AI Consulting &amp; Product Company
+          i79 Engage — AI Hiring Platform
         </div>
 
         {/* Heading */}
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-tight text-foreground">
-          AI Transformation.{" "}
-          <span className="gradient-text">Built for Real</span>
-          <br />
-          Business Impact.
+          The AI Hiring Platform That{" "}
+          <span className="gradient-text">Works End to End</span>
         </h1>
 
         {/* Subtext */}
         <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          We design and deploy AI-powered enterprise systems and intelligent
-          automation platforms that help organizations scale faster and make
-          better decisions.
+          i79 Engage scores candidates, conducts structured AI interviews, and delivers
+          ranked shortlists with decision-ready scorecards. Your team focuses on
+          the final hire.
         </p>
 
         {/* CTAs */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button href="/contact" variant="primary" size="lg">
-            Talk to Us
+          <Button href="https://vengage.i79.ai/register" variant="primary" size="lg">
+            Start Free Trial <ArrowRight size={16} className="ml-2" />
           </Button>
-          <Button href="/engage" variant="outline" size="lg">
-            Explore Engage
+          <Button href="/contact" variant="outline" size="lg">
+            <Play size={15} className="mr-2" />
+            Book a Demo
           </Button>
         </div>
 
         {/* Social proof strip */}
         <p className="mt-12 text-xs text-muted-foreground uppercase tracking-widest">
-          Trusted by forward-thinking organizations
+          Trusted by forward-thinking hiring teams
         </p>
       </div>
     </SectionWrapper>

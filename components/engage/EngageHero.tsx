@@ -13,14 +13,14 @@ export default function EngageHero() {
           </span>
 
           <h1 className="text-5xl md:text-6xl font-bold leading-[1.08] tracking-tight text-foreground">
-            Transform Hiring{" "}
-            <span className="gradient-text">with AI</span>
+            From First Candidate to{" "}
+            <span className="gradient-text">Your Final Decision — One Platform</span>
           </h1>
 
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            i79 Engage is an AI-powered recruitment platform — a full ATS with
-            automated AI interviews, intelligent candidate scoring, and
-            data-driven hiring decisions.
+            i79 Engage automates your entire hiring pipeline — candidate
+            scoring, structured AI interviews, ranked shortlists, and
+            decision-ready packs — all in one place.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
@@ -33,11 +33,11 @@ export default function EngageHero() {
               <ArrowRight size={16} className="ml-2" />
             </Button>
             <Button
-              href="https://vengage.i79.ai"
+              href="/contact"
               variant="outline"
               size="lg"
             >
-              Sign In
+              Book a Demo
             </Button>
           </div>
         </div>

@@ -4,27 +4,27 @@ import { Mic, Brain, TrendingUp, ShieldCheck } from "lucide-react";
 const capabilities = [
   {
     icon: Mic,
-    title: "Voice + Video Interviews",
+    title: "Role-Specific AI Interviewer",
     description:
-      "AI conducts natural voice and video interviews, asking contextual follow-up questions in real time.",
+      "The AI agent interviews based on the competencies and hiring criteria defined for the role — not a generic script. Questions adapt in real time based on candidate responses.",
   },
   {
     icon: Brain,
-    title: "Behavioral Analysis",
+    title: "Behavioural Analysis",
     description:
-      "Deep analysis of candidate responses to assess communication, confidence, and cultural alignment.",
+      "Deep analysis of candidate responses to assess communication clarity, confidence, critical thinking, and cultural alignment against role requirements.",
   },
   {
     icon: TrendingUp,
-    title: "Real-time Scoring",
+    title: "Structured Scorecards",
     description:
-      "Every candidate receives an AI-generated score with a detailed breakdown, immediately after the interview.",
+      "After every interview, a structured scorecard is generated — competency-by-competency ratings, supporting evidence, and a hiring recommendation. Recruiters review and approve before any stage move.",
   },
   {
     icon: ShieldCheck,
-    title: "Fraud Detection",
+    title: "Integrity Detection",
     description:
-      "Built-in anti-fraud measures detect impersonation, AI-generated answers, and suspicious behaviors.",
+      "Built-in safeguards detect impersonation, coached responses, and suspicious patterns — so every scorecard reflects a genuine, unassisted evaluation.",
   },
 ];
 
@@ -34,9 +34,6 @@ export default function AIInterview() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left: Text */}
         <div>
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-accent mb-5">
-            Core USP
-          </span>
           <h2 className="text-3xl md:text-4xl font-semibold text-foreground leading-tight">
             AI Interviews That{" "}
             <span className="gradient-text">Actually Work</span>

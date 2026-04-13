@@ -26,8 +26,8 @@ export default function Footer() {
               i79
             </Link>
             <p className="mt-3 text-sm text-muted-foreground max-w-xs">
-              AI consulting company building enterprise AI platforms and
-              intelligent recruitment systems.
+              Automate your entire hiring pipeline — from first candidate to final
+              decision — with i79 Engage.
             </p>
             <p className="mt-4 text-xs text-muted-foreground">
               
@@ -65,12 +65,27 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-14 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} i79.ai Technologies LLC. All
+            &copy; {new Date().getFullYear()} i79.ai. All
             rights reserved.
           </p>
-          <p className="text-xs text-muted-foreground">
-            Built for enterprise. Designed for clarity.
-          </p>
+          <div className="flex items-center gap-5">
+            <a
+              href="https://vengage.i79.ai/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="https://vengage.i79.ai/terms"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200"
+            >
+              Terms of Service
+            </a>
+          </div>
         </div>
       </div>
     </footer>

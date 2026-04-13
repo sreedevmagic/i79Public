@@ -19,11 +19,11 @@ export const metadata: Metadata = buildMetadata(
 );
 
 const contactDetails = [
-  {
-    icon: MapPin,
-    label: "Address",
-    value: "Abu Dhabi, UAE",
-  },
+  // {
+  //   icon: MapPin,
+  //   label: "Address",
+  //   value: "Abu Dhabi, UAE",
+  // },
   {
     icon: Mail,
     label: "Email",
@@ -51,7 +51,7 @@ export default function ContactPage() {
           <span className="gradient-text">Talk</span>
         </h1>
         <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-          Whether you&apos;re exploring AI strategy, want a demo of Engage, or have
+          Whether you want a demo of Engage, exploring AI strategy, or have
           a specific project in mind — we&apos;re here.
         </p>
       </div>
@@ -61,7 +61,7 @@ export default function ContactPage() {
         <div className="lg:col-span-2 space-y-10">
           <div>
             <h2 className="text-xl font-semibold text-foreground mb-2">
-              i79.ai Technologies LLC
+              i79.ai 
             </h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
               An AI consulting and product company powering enterprise

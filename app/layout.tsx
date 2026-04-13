@@ -19,7 +19,7 @@ const organizationSchema = {
   url: "https://i79.ai",
   logo: "https://i79.ai/favicon.svg",
   description:
-    "i79.ai is an AI consulting company building enterprise AI platforms, intelligent automation systems, and AI-powered recruitment software.",
+    "i79.ai builds AI-powered hiring software and enterprise AI systems. i79 Engage automates interviews, scores candidates, and accelerates hiring decisions at scale.",
   contactPoint: {
     "@type": "ContactPoint",
     email: "contact@i79.ai",

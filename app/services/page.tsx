@@ -37,7 +37,7 @@ export default function ServicesPage() {
       <CTA
         heading="Ready to Build Your AI System?"
         subtext="Let's map out your AI transformation together — from strategy to live deployment."
-        primaryLabel="Talk to Us"
+        primaryLabel="Book Consultation"
         primaryHref="/contact"
         secondaryLabel="View Engage"
         secondaryHref="/engage"
