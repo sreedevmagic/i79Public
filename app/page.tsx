@@ -10,23 +10,24 @@ import CTA from "@/components/sections/CTA";
 
 export const metadata: Metadata = buildMetadata(
   {
-    title: "i79 Engage – AI Interview & Hiring Automation",
+    title: "i79 Engage – The AI Hiring Platform That Works End to End",
     description:
-      "Run AI interviews at scale. Automatically screen, interview, and rank candidates using AI. Shortlist top talent in minutes with i79 Engage.",
+      "i79 Engage automates your entire hiring pipeline — candidate scoring, AI interviews, ranked shortlists, and decision-ready packs. Start free, no credit card required.",
     openGraph: {
-      title: "i79 Engage – Run AI Interviews at Scale",
+      title: "i79 Engage – AI Hiring Platform",
       description:
-        "Automatically screen, interview, and rank candidates. No scheduling. No manual first rounds. Just a decision-ready shortlist.",
+        "Automate candidate screening, AI interviews, and hiring decisions. Get a ranked shortlist in hours, not weeks.",
     },
   },
   {
     canonicalPath: "/",
     extraKeywords: [
-      "AI interview automation",
       "AI hiring platform",
+      "AI hiring pipeline",
       "automated candidate screening",
       "AI recruitment software",
-      "shortlist candidates with AI",
+      "candidate scoring software",
+      "hiring pipeline automation",
     ],
   }
 );

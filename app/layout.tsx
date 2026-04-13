@@ -31,8 +31,8 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   url: "https://i79.ai",
-  name: "i79.ai",
-  description: "Enterprise AI consulting & intelligent recruitment platforms.",
+  name: "i79 Engage",
+  description: "AI hiring platform — automated candidate screening, AI interviews, and decision packs for enterprise teams.",
 };
 
 export default function RootLayout({

@@ -10,12 +10,16 @@ module.exports = {
     const priorities = {
       "/": 1.0,
       "/engage": 0.9,
-      "/services": 0.8,
+      "/pricing": 0.8,
+      "/use-cases": 0.8,
+      "/services": 0.7,
       "/contact": 0.6,
     };
     const changefreqs = {
       "/": "weekly",
       "/engage": "weekly",
+      "/pricing": "monthly",
+      "/use-cases": "monthly",
       "/services": "monthly",
       "/contact": "monthly",
     };
