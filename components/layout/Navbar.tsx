@@ -53,7 +53,7 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border shadow-sm"
+          ? "bg-background/95 backdrop-blur-xl border-b border-border shadow-sm"
           : "bg-transparent"
       )}
     >
@@ -72,14 +72,14 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center gap-8">
           <Link
             href="/"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+            className="text-sm text-foreground/60 hover:text-foreground transition-colors duration-200"
           >
             Home
           </Link>
 
           <Link
             href="/engage"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+            className="text-sm text-foreground/60 hover:text-foreground transition-colors duration-200"
           >
             Product
           </Link>
@@ -90,7 +90,7 @@ export default function Navbar() {
               onClick={() => setUseCasesOpen((v) => !v)}
               className={cn(
                 "flex items-center gap-1 text-sm transition-colors duration-200",
-                useCasesOpen ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                useCasesOpen ? "text-foreground" : "text-foreground/60 hover:text-foreground"
               )}
             >
               Use Cases
@@ -119,7 +119,7 @@ export default function Navbar() {
           {/* Pricing */}
           <Link
             href="/pricing"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+            className="text-sm text-foreground/60 hover:text-foreground transition-colors duration-200"
           >
             Pricing
           </Link>
@@ -128,7 +128,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+              className="text-sm text-foreground/60 hover:text-foreground transition-colors duration-200"
             >
               {link.label}
             </Link>
@@ -148,7 +148,7 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <div className="md:hidden flex items-center gap-2">
           <button
-            className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-foreground/60 hover:text-foreground transition-colors"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Toggle menu"
           >
@@ -164,7 +164,7 @@ export default function Navbar() {
             <Link
               href="/"
               onClick={() => setMobileOpen(false)}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+              className="text-sm text-foreground/60 hover:text-foreground transition-colors py-2"
             >
               Home
             </Link>
@@ -172,7 +172,7 @@ export default function Navbar() {
             <Link
               href="/engage"
               onClick={() => setMobileOpen(false)}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+              className="text-sm text-foreground/60 hover:text-foreground transition-colors py-2"
             >
               Product
             </Link>
@@ -181,7 +181,7 @@ export default function Navbar() {
             <div>
               <button
                 onClick={() => setMobileUseCasesOpen((v) => !v)}
-                className="w-full flex items-center justify-between text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+                className="w-full flex items-center justify-between text-sm text-foreground/60 hover:text-foreground transition-colors py-2"
               >
                 Use Cases
                 <ChevronDown
@@ -196,7 +196,7 @@ export default function Navbar() {
                       key={uc.href}
                       href={uc.href}
                       onClick={() => { setMobileOpen(false); setMobileUseCasesOpen(false); }}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors py-1"
+                      className="text-sm text-foreground/60 hover:text-foreground transition-colors py-1"
                     >
                       {uc.label}
                     </Link>
@@ -209,7 +209,7 @@ export default function Navbar() {
             <Link
               href="/pricing"
               onClick={() => setMobileOpen(false)}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+              className="text-sm text-foreground/60 hover:text-foreground transition-colors py-2"
             >
               Pricing
             </Link>
@@ -219,7 +219,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+                className="text-sm text-foreground/60 hover:text-foreground transition-colors py-2"
               >
                 {link.label}
               </Link>
