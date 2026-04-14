@@ -28,9 +28,15 @@ const steps = [
   },
   {
     number: "05",
-    title: "Shortlist & Decide",
+    title: "Panel Interview",
     description:
-      "Review a ranked shortlist with Decision Packs consolidating candidate scores, AI interview scorecards, and human assessments. Optionally run a human interview round before capturing the final hiring decision.",
+      "Shortlisted candidates are invited to a human or panel interview. Decision Packs give every interviewer the full context — AI scorecard, candidate scores, and key insights — before they enter the room.",
+  },
+  {
+    number: "06",
+    title: "Hire",
+    description:
+      "Capture the final hiring decision directly in the platform. All scorecards, assessments, and decisions are stored — giving you a complete, auditable record from first application to offer.",
   },
 ];
 
@@ -47,13 +53,13 @@ export default function EngageWorkflow() {
       </div>
 
       <div className="relative">
-        {/* Connector line (desktop) */}
+        {/* Connector line — top row (desktop) */}
         <div
           aria-hidden
           className="hidden md:block absolute top-9 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent mx-20"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {steps.map((step) => (
             <div
               key={step.number}

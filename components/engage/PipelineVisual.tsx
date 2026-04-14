@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { LayoutDashboard, BarChart3, Search, FileText } from "lucide-react";
+import { LayoutDashboard, BarChart3, Search } from "lucide-react";
 
 const tabs = [
   {
@@ -29,14 +29,6 @@ const tabs = [
     src: "/Images/AI Source result.png",
     alt: "i79 Engage AI Sourcing — matched candidates with enrichment and outreach",
     caption: "AI surfaces matching candidates from external talent pools — with enrichment and outreach built in. Available on advanced plans.",
-  },
-  {
-    id: "scorecard",
-    label: "Scorecard",
-    icon: FileText,
-    src: "/Images/scorecard.png",
-    alt: "i79 Engage AI Scorecard — competency ratings, evidence, and hiring recommendation",
-    caption: "Every AI interview produces a structured scorecard — competency ratings with evidence, an overall assessment, and a clear hiring recommendation.",
   },
 ];
 
