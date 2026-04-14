@@ -28,7 +28,7 @@ export default function ThemeProvider({
   // On mount: read saved preference, otherwise default to dark
   useEffect(() => {
     const saved = localStorage.getItem("theme") as Theme | null;
-    const resolved = saved ?? "dark";
+    const resolved = saved ?? "light";
     setTheme(resolved);
     document.documentElement.classList.toggle("dark", resolved === "dark");
   }, []);
