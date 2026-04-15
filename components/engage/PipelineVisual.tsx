@@ -40,9 +40,9 @@ export default function PipelineVisual() {
   return (
     <SectionWrapper>
       <div className="text-center mb-12">
-        <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4">
-          See it in action
-        </span>
+        {/* <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-4">
+          The system at every stage
+        </span> */}
         <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
           The system at every stage
         </h2>

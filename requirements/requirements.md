@@ -427,7 +427,7 @@ Split:
 
 ## 🔹 Contact Info
 
-i79.ai Technologies LLC  
+i79.ai 
 Abu Dhabi, UAE  
 
 Email: contact@i79.ai  

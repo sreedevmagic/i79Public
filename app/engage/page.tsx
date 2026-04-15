@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/metadata";
 import JsonLd from "@/components/layout/JsonLd";
 import EngageHero from "@/components/engage/EngageHero";
-import EngageDemo from "@/components/engage/EngageDemo";
+// import EngageDemo from "@/components/engage/EngageDemo";
 import PipelineVisual from "@/components/engage/PipelineVisual";
 import EngageWorkflow from "@/components/engage/EngageWorkflow";
 import Features from "@/components/engage/Features";
 import AIInterview from "@/components/engage/AIInterview";
 import Integrations from "@/components/engage/Integrations";
 import EngageCTA from "@/components/engage/EngageCTA";
+import Roadmap from "@/components/engage/Roadmap";
 
 export const metadata: Metadata = buildMetadata(
   {
@@ -70,12 +71,13 @@ export default function EngagePage() {
     <>
       <JsonLd schema={engageSchema} />
       <EngageHero />
-      <EngageDemo />
+      {/* <EngageDemo /> Demo video removed until available */}
       <PipelineVisual />
       <EngageWorkflow />
       <Features />
       <AIInterview />
       <Integrations />
+      <Roadmap />
       <EngageCTA />
     </>
   );
