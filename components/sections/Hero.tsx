@@ -43,11 +43,6 @@ export default function Hero() {
             Book a Demo
           </Button>
         </div>
-
-        {/* Social proof strip */}
-        <p className="mt-12 text-xs text-muted-foreground uppercase tracking-widest">
-          Trusted by forward-thinking hiring teams
-        </p>
       </div>
     </SectionWrapper>
   );

@@ -12,7 +12,7 @@ const capabilities = [
     icon: Brain,
     title: "Behavioural Analysis",
     description:
-      "Deep analysis of candidate responses to assess communication clarity, confidence, critical thinking, and cultural alignment against role requirements.",
+      "Deep analysis of candidate responses to assess communication clarity, confidence, critical thinking, and role-specific competency alignment — evaluated against the criteria defined by the hiring team for each role.",
   },
   {
     icon: TrendingUp,
