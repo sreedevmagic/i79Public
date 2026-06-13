@@ -6,11 +6,13 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "sm" | "md" | "lg";
   asChild?: boolean;
   href?: string;
+  target?: string;
+  rel?: string;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { className, variant = "primary", size = "md", href, children, ...props },
+    { className, variant = "primary", size = "md", href, target, rel, children, ...props },
     ref
   ) => {
     const base =
@@ -34,9 +36,18 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const classes = cn(base, variants[variant], sizes[size], className);
 
     if (href) {
+      const isExternal = target === "_blank";
       return (
-        <a href={href} className={classes}>
+        <a
+          href={href}
+          target={target}
+          rel={isExternal ? (rel ?? "noopener noreferrer") : rel}
+          className={classes}
+        >
           {children}
+          {isExternal && (
+            <span className="sr-only"> (opens in new tab)</span>
+          )}
         </a>
       );
     }

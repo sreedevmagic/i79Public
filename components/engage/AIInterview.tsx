@@ -51,9 +51,9 @@ export default function AIInterview() {
                   <Icon size={18} className="text-accent" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-foreground mb-1">
+                  <h3 className="text-sm font-semibold text-foreground mb-1">
                     {title}
-                  </p>
+                  </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {description}
                   </p>
@@ -63,8 +63,8 @@ export default function AIInterview() {
           </div>
         </div>
 
-        {/* Right: Visual */}
-        <div className="relative">
+        {/* Right: Visual — decorative, hidden from assistive tech */}
+        <div className="relative" aria-hidden="true">
           <div className="rounded-2xl border border-border bg-card p-6 shadow-2xl shadow-accent/5 glow-accent">
             {/* Mock interview UI */}
             <div className="flex items-center gap-2 mb-5">
@@ -125,7 +125,7 @@ export default function AIInterview() {
           </div>
 
           <div
-            aria-hidden
+            aria-hidden="true"
             className="absolute -inset-4 -z-10 rounded-3xl bg-accent/5 blur-2xl"
           />
         </div>

@@ -54,6 +54,13 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
         <ThemeProvider>
+          {/* Skip to main content — keyboard & screen reader navigation */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-background focus:text-foreground focus:rounded-lg focus:ring-2 focus:ring-ring focus:outline-none"
+          >
+            Skip to main content
+          </a>
           {/* Structured data */}
           <JsonLd schema={organizationSchema} />
           <JsonLd schema={websiteSchema} />
@@ -90,7 +97,7 @@ export default function RootLayout({
           )}
 
           <Navbar />
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

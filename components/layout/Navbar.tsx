@@ -30,6 +30,9 @@ export default function Navbar() {
   const [useCasesOpen, setUseCasesOpen]     = useState(false);
   const [mobileUseCasesOpen, setMobileUseCasesOpen]   = useState(false);
   const useCasesRef = useRef<HTMLDivElement>(null);
+  const toggleButtonRef = useRef<HTMLButtonElement>(null);
+  const firstMobileItemRef = useRef<HTMLAnchorElement>(null);
+  const prevMobileOpen = useRef(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -48,6 +51,30 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
+  // Close menus on Escape key
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setUseCasesOpen(false);
+        setMobileOpen(false);
+        setMobileUseCasesOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, []);
+
+  // Mobile menu focus management — WCAG 2.4.3
+  useEffect(() => {
+    if (mobileOpen) {
+      firstMobileItemRef.current?.focus();
+      prevMobileOpen.current = true;
+    } else if (prevMobileOpen.current) {
+      toggleButtonRef.current?.focus();
+      prevMobileOpen.current = false;
+    }
+  }, [mobileOpen]);
+
   return (
     <header
       className={cn(
@@ -59,7 +86,11 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5">
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg"
+          aria-label="i79.ai home"
+        >
           <div className="inline-flex items-center justify-center w-9 h-9 bg-gradient-primary rounded">
             <span className="text-primary-foreground font-bold text-base tracking-tight">i79</span>
           </div>
@@ -88,6 +119,9 @@ export default function Navbar() {
           <div ref={useCasesRef} className="relative">
             <button
               onClick={() => setUseCasesOpen((v) => !v)}
+              aria-haspopup="true"
+              aria-expanded={useCasesOpen}
+              aria-controls="use-cases-menu"
               className={cn(
                 "flex items-center gap-1 text-sm transition-colors duration-200",
                 useCasesOpen ? "text-foreground" : "text-foreground/60 hover:text-foreground"
@@ -100,11 +134,16 @@ export default function Navbar() {
               />
             </button>
             {useCasesOpen && (
-              <div className="absolute top-[calc(100%+1.25rem)] left-1/2 -translate-x-1/2 w-64 rounded-2xl border border-border bg-card shadow-xl animate-fade-up p-2 overflow-hidden">
+              <div
+                id="use-cases-menu"
+                role="menu"
+                className="absolute top-[calc(100%+1.25rem)] left-1/2 -translate-x-1/2 w-64 rounded-2xl border border-border bg-card shadow-xl animate-fade-up p-2 overflow-hidden"
+              >
                 {useCaseLinks.map((uc) => (
                   <Link
                     key={uc.href}
                     href={uc.href}
+                    role="menuitem"
                     onClick={() => setUseCasesOpen(false)}
                     className="flex flex-col gap-0.5 px-3 py-2.5 rounded-xl hover:bg-muted transition-colors"
                   >
@@ -137,10 +176,10 @@ export default function Navbar() {
 
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-3">
-          <Button href="https://vengage.i79.ai" variant="ghost" size="sm">
+          <Button href="https://vengage.i79.ai" target="_blank" rel="noopener noreferrer" variant="ghost" size="sm">
             Sign In
           </Button>
-          <Button href="https://vengage.i79.ai/register" variant="primary" size="sm">
+          <Button href="https://vengage.i79.ai/register" target="_blank" rel="noopener noreferrer" variant="primary" size="sm">
             Start Free Trial
           </Button>
         </div>
@@ -148,9 +187,12 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <div className="md:hidden flex items-center gap-2">
           <button
+            ref={toggleButtonRef}
               className="text-foreground/60 hover:text-foreground transition-colors"
             onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Toggle menu"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -159,10 +201,11 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border px-6 pb-6">
+        <div id="mobile-menu" className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border px-6 pb-6">
           <nav className="flex flex-col gap-1 pt-4">
             <Link
               href="/"
+              ref={firstMobileItemRef}
               onClick={() => setMobileOpen(false)}
               className="text-sm text-foreground/60 hover:text-foreground transition-colors py-2"
             >
@@ -228,6 +271,8 @@ export default function Navbar() {
           <div className="flex flex-col gap-3 mt-6">
             <Button
               href="https://vengage.i79.ai"
+              target="_blank"
+              rel="noopener noreferrer"
               variant="outline"
               size="md"
               className="w-full"
@@ -236,6 +281,8 @@ export default function Navbar() {
             </Button>
             <Button
               href="https://vengage.i79.ai/register"
+              target="_blank"
+              rel="noopener noreferrer"
               variant="primary"
               size="md"
               className="w-full"

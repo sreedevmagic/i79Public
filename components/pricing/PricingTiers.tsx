@@ -5,21 +5,21 @@ import { CheckCircle2 } from "lucide-react";
 const tiers = [
   {
     name: "Starter",
-    tagline: "Try before you commit",
-    price: "Free",
-    priceSub: "No credit card required",
+    tagline: "For teams getting started",
+    price: "Contact for Pricing",
+    priceSub: "Tailored to your team size",
     description:
-      "Get your first AI interviews running immediately. Includes candidate processing and interview credits to evaluate the platform with real candidates.",
+      "Everything you need to run AI interviews and build a structured candidate pipeline. Candidate processing, scoring, and transcripts included.",
     features: [
-      "Candidate processing credits included",
-      "AI interview credits included",
+      "Candidate processing credits",
+      "AI interview credits",
       "Basic candidate pipeline",
       "Candidate scoring & AI scorecards",
       "Interview transcripts",
       "Email support",
     ],
-    ctaLabel: "Start Free",
-    ctaHref: "https://vengage.i79.ai/register",
+    ctaLabel: "Contact for Pricing",
+    ctaHref: "/contact",
     ctaVariant: "outline" as const,
     highlighted: false,
   },
@@ -46,27 +46,6 @@ const tiers = [
     badge: "Most Popular",
   },
   {
-    name: "Scale",
-    tagline: "For high-volume hiring",
-    price: "Contact for Pricing",
-    priceSub: "For larger teams and higher volumes",
-    description:
-      "Large credit pools, multi-team support, and advanced controls for organisations running high-volume or multi-location hiring.",
-    features: [
-      "Everything in Growth",
-      "Much larger credit limits",
-      "Multi-team & multi-location support",
-      "Branded career page",
-      "Calendar integrations",
-      "Advanced hiring analytics",
-      "Dedicated onboarding support",
-    ],
-    ctaLabel: "Contact for Pricing",
-    ctaHref: "/contact",
-    ctaVariant: "outline" as const,
-    highlighted: false,
-  },
-  {
     name: "Enterprise",
     tagline: "Full platform, governed at scale",
     price: "Contact Sales",
@@ -74,7 +53,7 @@ const tiers = [
     description:
       "The complete platform with enterprise-grade integrations, governance workflows, and dedicated support for complex, regulated hiring environments.",
     features: [
-      "Everything in Scale",
+      "Everything in Growth",
       "AI sourcing & outreach",
       "HRIS & ATS integrations",
       "SSO & role-based access controls",
@@ -92,20 +71,20 @@ const tiers = [
 
 const faqs = [
   {
-    q: "Is the Starter plan really free?",
-    a: "Yes — no credit card required. Starter includes candidate processing and interview credits so you can run real AI interviews immediately and evaluate the platform properly.",
-  },
-  {
     q: "How does credit-based billing work?",
     a: "The platform uses two types of credits: Candidate Processing Credits (consumed when a candidate is scored and processed) and AI Interview Credits (consumed when an AI interview is completed). Each plan includes a credit allowance, and add-on packs are available if you need more.",
   },
   {
-    q: "How is Growth or Scale pricing determined?",
-    a: "Pricing is based on your team size and expected hiring volume. Contact us and we'll build a plan around your actual needs — no fixed tiers that don't fit.",
+    q: "How is pricing determined for each plan?",
+    a: "Pricing is based on your team size and expected hiring volume. Contact us and we'll build a plan around your actual needs.",
   },
   {
-    q: "Can I upgrade from Starter to a paid plan at any time?",
-    a: "Absolutely. Your pipeline, candidates, scorecards, and history carry over when you upgrade.",
+    q: "Can I move between plans as my hiring scales?",
+    a: "Yes. Your pipeline, candidates, scorecards, and history carry over when you change plans.",
+  },
+  {
+    q: "What's included in Enterprise?",
+    a: "Enterprise includes the full platform — AI sourcing, HRIS & ATS integrations, SSO, audit trail, requisition workflows, and a dedicated account manager with a custom SLA.",
   },
 ];
 
@@ -113,9 +92,10 @@ export default function PricingTiers() {
   return (
     <>
       {/* Tiers */}
-      <section className="w-full py-24 px-6">
+      <section className="w-full py-24 px-6" aria-labelledby="pricing-plans-heading">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-start">
+          <h2 id="pricing-plans-heading" className="sr-only">Pricing Plans</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
             {tiers.map((tier) => (
               <div
                 key={tier.name}
@@ -133,7 +113,7 @@ export default function PricingTiers() {
 
                 {/* Header */}
                 <div>
-                  <p className="text-xl font-bold text-foreground">{tier.name}</p>
+                  <h3 className="text-xl font-bold text-foreground">{tier.name}</h3>
                   <p className="text-xs text-primary font-medium mt-0.5">{tier.tagline}</p>
                   <div className="mt-4">
                     <p className="text-2xl font-bold text-foreground">{tier.price}</p>
@@ -171,19 +151,19 @@ export default function PricingTiers() {
       </section>
 
       {/* FAQ */}
-      <section className="w-full py-20 px-6 bg-card/20">
+      <section className="w-full py-20 px-6 bg-card/20" aria-labelledby="faq-heading">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-semibold text-foreground text-center mb-12">
+          <h2 id="faq-heading" className="text-2xl md:text-3xl font-semibold text-foreground text-center mb-12">
             Frequently asked questions
           </h2>
-          <div className="flex flex-col divide-y divide-border">
+          <dl className="flex flex-col divide-y divide-border">
             {faqs.map((faq) => (
               <div key={faq.q} className="py-6">
-                <p className="text-sm font-semibold text-foreground mb-2">{faq.q}</p>
-                <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+                <dt className="text-sm font-semibold text-foreground mb-2">{faq.q}</dt>
+                <dd className="text-sm text-muted-foreground leading-relaxed">{faq.a}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
       </section>
     </>

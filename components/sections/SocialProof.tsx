@@ -13,10 +13,10 @@ export default function SocialProof() {
       {/* Metrics */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-8">
         {metrics.map((m) => (
-          <div key={m.label} className="space-y-2">
-            <p className="text-4xl md:text-5xl font-bold gradient-text">{m.value}</p>
-            <p className="text-sm text-muted-foreground leading-snug">{m.label}</p>
-          </div>
+          <dl key={m.label} className="space-y-2">
+            <dt className="text-4xl md:text-5xl font-bold gradient-text">{m.value}</dt>
+            <dd className="text-sm text-muted-foreground leading-snug">{m.label}</dd>
+          </dl>
         ))}
       </div>
 

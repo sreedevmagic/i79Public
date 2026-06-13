@@ -6,18 +6,18 @@ import Link from "next/link";
 const tiers = [
   {
     name: "Starter",
-    tagline: "Try before you commit",
-    description: "Get your first AI interviews running immediately. No credit card required. Includes candidate processing and interview credits to evaluate the platform with real candidates.",
+    tagline: "For teams getting started",
+    description: "Everything you need to run AI interviews and build a structured candidate pipeline. Candidate processing, scoring, and transcripts included.",
     features: [
-      "Candidate processing credits included",
-      "AI interview credits included",
+      "Candidate processing credits",
+      "AI interview credits",
       "Basic candidate pipeline",
       "Candidate scoring & AI scorecards",
       "Interview transcripts",
       "Email support",
     ],
-    ctaLabel: "Start Free",
-    ctaHref: "https://vengage.i79.ai/register",
+    ctaLabel: "Contact for Pricing",
+    ctaHref: "/contact",
     ctaVariant: "outline" as const,
     highlighted: false,
   },
@@ -45,7 +45,7 @@ const tiers = [
     tagline: "Full platform, governed at scale",
     description: "The complete platform with enterprise-grade integrations, governance workflows, and dedicated support for complex hiring environments.",
     features: [
-      "Everything in Growth & Scale",
+      "Everything in Growth",
       "AI sourcing & outreach",
       "HRIS & ATS integrations",
       "SSO & role-based access controls",
@@ -68,7 +68,7 @@ export default function PricingPreview() {
           Simple, transparent pricing
         </h2>
         <p className="mt-4 text-base text-muted-foreground max-w-xl mx-auto">
-          Start free. Scale when you&apos;re ready. Enterprise pricing on request.
+          Three plans built around your hiring volume. Enterprise pricing on request.
         </p>
       </div>
 
@@ -89,7 +89,7 @@ export default function PricingPreview() {
             )}
 
             <div>
-              <p className="text-lg font-bold text-foreground">{tier.name}</p>
+              <h3 className="text-lg font-bold text-foreground">{tier.name}</h3>
               <p className="text-xs text-primary font-medium mt-0.5">{tier.tagline}</p>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
                 {tier.description}
@@ -124,7 +124,7 @@ export default function PricingPreview() {
           href="/pricing"
           className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
-          View full pricing — including Scale plan <ArrowRight size={14} />
+          View full pricing details <ArrowRight size={14} />
         </Link>
       </div>
     </SectionWrapper>

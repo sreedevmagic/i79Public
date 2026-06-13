@@ -6,7 +6,7 @@ export const metadata: Metadata = buildMetadata(
   {
     title: "Accessibility Statement",
     description:
-      "i79 Engage is committed to making our platform accessible to all users, including those with disabilities. We target WCAG 2.1 Level AA conformance.",
+      "i79 Engage is committed to making our platform accessible to all users, including those with disabilities. We target WCAG 2.2 Level AA conformance.",
     openGraph: {
       title: "Accessibility Statement — i79 Engage",
       description:
@@ -42,7 +42,7 @@ export default function AccessibilityPage() {
                 WCAG Conformance
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                i79 Engage aims to comply with the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standard published by the World Wide Web Consortium (W3C). We target conformance across:
+                i79 Engage aims to comply with the Web Content Accessibility Guidelines (WCAG) 2.2 Level AA standard published by the World Wide Web Consortium (W3C). WCAG 2.2 AA is the standard referenced by ADA / Section 508 (US), EN 301 549 (EU/EEA), and the UAE Federal e-Government Accessibility Guidelines. We target conformance across:
               </p>
               <ul className="space-y-2 text-base text-muted-foreground">
                 <li className="flex gap-3">
@@ -58,6 +58,9 @@ export default function AccessibilityPage() {
                   <span>This website (i79.ai)</span>
                 </li>
               </ul>
+              <p className="text-base text-muted-foreground leading-relaxed mt-4">
+                WCAG 2.2 introduces new success criteria beyond 2.1, including: enhanced focus appearance (2.4.11, 2.4.12, 2.4.13), consistent help mechanisms (3.2.6), redundant entry avoidance (3.3.7), and accessible authentication (3.3.8). We are actively working to meet all new 2.2 criteria.
+              </p>
             </section>
 
             {/* What We Support */}
@@ -71,7 +74,7 @@ export default function AccessibilityPage() {
               <ul className="space-y-2 text-base text-muted-foreground">
                 <li className="flex gap-3">
                   <span className="text-primary">•</span>
-                  <span>Keyboard navigation and focus indicators</span>
+                  <span>Keyboard navigation and visible focus indicators</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-primary">•</span>
@@ -79,15 +82,19 @@ export default function AccessibilityPage() {
                 </li>
                 <li className="flex gap-3">
                   <span className="text-primary">•</span>
-                  <span>Sufficient color contrast (WCAG AA standards)</span>
+                  <span>Sufficient color contrast (WCAG 2.2 AA — minimum 4.5:1 for normal text)</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-primary">•</span>
-                  <span>Resizable text and zoom functionality</span>
+                  <span>Resizable text and zoom functionality up to 200%</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-primary">•</span>
-                  <span>Semantic HTML and ARIA landmarks</span>
+                  <span>Semantic HTML, ARIA landmarks, and skip navigation links</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-primary">•</span>
+                  <span>Reduced motion support via <code>prefers-reduced-motion</code></span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-primary">•</span>
@@ -102,7 +109,7 @@ export default function AccessibilityPage() {
                 Known Limitations
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed">
-                While we strive for full accessibility, we acknowledge there may be areas where our platform does not meet WCAG 2.1 Level AA standards. We are actively working to identify and remediate any barriers. If you encounter an accessibility issue, please contact us so we can prioritize a fix.
+                While we strive for full WCAG 2.2 Level AA conformance, we acknowledge there may be areas where our platform does not yet meet all criteria. We are actively working to identify and remediate any barriers — particularly for the new WCAG 2.2 success criteria. If you encounter an accessibility issue, please contact us so we can prioritize a fix.
               </p>
             </section>
 
@@ -136,7 +143,7 @@ export default function AccessibilityPage() {
                 Continuous Improvement
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Accessibility is an ongoing commitment. We regularly test our platform against WCAG 2.1 standards and incorporate user feedback to improve the experience for all users. We welcome suggestions and will respond to accessibility inquiries within 2 business days.
+                Accessibility is an ongoing commitment. We regularly audit our platform against WCAG 2.2 standards, conduct user testing with assistive technologies, and incorporate feedback to improve the experience for all users. We respond to accessibility inquiries within 2 business days.
               </p>
             </section>
 
@@ -152,12 +159,13 @@ export default function AccessibilityPage() {
                 <li className="flex gap-3">
                   <span className="text-primary">•</span>
                   <a
-                    href="https://www.w3.org/WAI/WCAG21/quickref/"
+                    href="https://www.w3.org/WAI/WCAG22/quickref/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary hover:underline"
                   >
-                    WCAG 2.1 Quick Reference Guide
+                    WCAG 2.2 Quick Reference Guide
+                    <span className="sr-only"> (opens in new tab)</span>
                   </a>
                 </li>
                 <li className="flex gap-3">
@@ -169,6 +177,19 @@ export default function AccessibilityPage() {
                     className="text-primary hover:underline"
                   >
                     W3C Web Accessibility Initiative (WAI)
+                    <span className="sr-only"> (opens in new tab)</span>
+                  </a>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-primary">•</span>
+                  <a
+                    href="https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    EN 301 549 v3.2.1 (EU Accessibility Standard)
+                    <span className="sr-only"> (opens in new tab)</span>
                   </a>
                 </li>
               </ul>

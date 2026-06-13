@@ -186,7 +186,7 @@ export default function UseCasesGrid() {
                 <p className="mt-3 text-base text-muted-foreground">{uc.tagline}</p>
 
                 <div className="mt-8">
-                  <p className="text-sm font-semibold text-foreground mb-3">{uc.problem.heading}</p>
+                  <h3 className="text-sm font-semibold text-foreground mb-3">{uc.problem.heading}</h3>
                   <ul className="flex flex-col gap-2">
                     {uc.problem.points.map((p) => (
                       <li key={p} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -198,9 +198,9 @@ export default function UseCasesGrid() {
                 </div>
 
                 <div className="mt-8 rounded-xl bg-primary/5 border border-primary/15 p-5">
-                  <p className="text-sm font-semibold text-foreground mb-2">
+                  <h3 className="text-sm font-semibold text-foreground mb-2">
                     {uc.solution.heading}
-                  </p>
+                  </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{uc.solution.body}</p>
                 </div>
               </div>
@@ -208,7 +208,7 @@ export default function UseCasesGrid() {
               {/* Right: Benefits + Workflow + CTAs */}
               <div className="flex flex-col gap-8">
                 <div>
-                  <p className="text-sm font-semibold text-foreground mb-4">Key benefits</p>
+                  <h3 className="text-sm font-semibold text-foreground mb-4">Key benefits</h3>
                   <ul className="flex flex-col gap-3">
                     {uc.benefits.map((b) => (
                       <li key={b} className="flex items-start gap-2">
@@ -220,7 +220,7 @@ export default function UseCasesGrid() {
                 </div>
 
                 <div>
-                  <p className="text-sm font-semibold text-foreground mb-4">How it works</p>
+                  <h3 className="text-sm font-semibold text-foreground mb-4">How it works</h3>
                   <ol className="flex flex-col gap-3">
                     {uc.steps.map((step, idx) => (
                       <li key={step} className="flex items-start gap-3">
@@ -234,7 +234,13 @@ export default function UseCasesGrid() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                  <Button href={uc.primaryCta.href} variant="primary" size="md">
+                  <Button
+                    href={uc.primaryCta.href}
+                    target={uc.primaryCta.href.startsWith("https://vengage") ? "_blank" : undefined}
+                    rel={uc.primaryCta.href.startsWith("https://vengage") ? "noopener noreferrer" : undefined}
+                    variant="primary"
+                    size="md"
+                  >
                     {uc.primaryCta.label}
                   </Button>
                   <Button href={uc.secondaryCta.href} variant="outline" size="md">

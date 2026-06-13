@@ -24,10 +24,13 @@
     --muted: 173 20% 96%;
     --muted-foreground: 173 10% 35%;
 
-    --accent: 197 78% 48%;
+    --accent: 197 78% 36%;
     --accent-foreground: 0 0% 100%;
 
-    --success: 145 65% 45%;
+    --info: 213 80% 40%;
+    --info-foreground: 0 0% 100%;
+
+    --success: 145 65% 35%;
     --success-foreground: 0 0% 100%;
 
     --warning: 35 90% 55%;
@@ -76,6 +79,9 @@
     --accent: 197 78% 58%;
     --accent-foreground: 0 0% 100%;
 
+    --info: 213 94% 65%;
+    --info-foreground: 0 0% 100%;
+
     --success: 145 65% 50%;
     --success-foreground: 0 0% 100%;
 
@@ -113,6 +119,13 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Global focus-visible ring — WCAG 2.4.7 / 2.4.11 */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 }
 
@@ -161,5 +174,17 @@
 
   .container-max {
     @apply max-w-6xl mx-auto;
+  }
+}
+
+/* Prefers-reduced-motion — WCAG 2.3.3 / EN 301 549 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

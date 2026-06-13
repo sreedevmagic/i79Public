@@ -7,7 +7,7 @@ export default function Hero() {
     <SectionWrapper className="relative overflow-hidden pt-36 pb-28 flex items-center justify-center min-h-screen">
       {/* Background glow */}
       <div
-        aria-hidden
+        aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
       >
         <div className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full bg-primary/5 blur-3xl" />
@@ -35,7 +35,7 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button href="https://vengage.i79.ai/register" variant="primary" size="lg">
+          <Button href="https://vengage.i79.ai/register" target="_blank" rel="noopener noreferrer" variant="primary" size="lg">
             Start Free Trial <ArrowRight size={16} className="ml-2" />
           </Button>
           <Button href="/contact" variant="outline" size="lg">

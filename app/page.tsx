@@ -13,7 +13,7 @@ export const metadata: Metadata = buildMetadata(
   {
     title: "i79 Engage – The AI Hiring Platform That Works End to End",
     description:
-      "i79 Engage automates your entire hiring pipeline — candidate scoring, AI interviews, ranked shortlists, and decision-ready packs. Start free, no credit card required.",
+      "i79 Engage automates your entire hiring pipeline — candidate scoring, AI interviews, ranked shortlists, and decision-ready packs.",
     openGraph: {
       title: "i79 Engage – AI Hiring Platform",
       description:
@@ -48,6 +48,7 @@ export default function HomePage() {
         subtext="Set up a job, score candidates automatically, and get a ranked shortlist — all in under an hour."
         primaryLabel="Start Free Trial"
         primaryHref="https://vengage.i79.ai/register"
+        primaryExternal
         secondaryLabel="Book a Demo"
         secondaryHref="/contact"
       />

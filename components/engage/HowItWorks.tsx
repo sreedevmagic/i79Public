@@ -42,7 +42,7 @@ export default function HowItWorks() {
       <div className="relative">
         {/* Connector line */}
         <div
-          aria-hidden
+          aria-hidden="true"
           className="hidden md:block absolute top-9 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent mx-24"
         />
 

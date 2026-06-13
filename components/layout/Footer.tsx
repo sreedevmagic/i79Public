@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-const footerLinks = {
+const footerLinks: Record<string, { label: string; href: string; external?: boolean }[]> = {
   Product: [
     { label: "Engage", href: "/engage" },
-    { label: "Sign In", href: "https://vengage.i79.ai" },
-    { label: "Get Started", href: "https://vengage.i79.ai/register" },
+    { label: "Sign In", href: "https://vengage.i79.ai", external: true },
+    { label: "Get Started", href: "https://vengage.i79.ai/register", external: true },
   ],
   Company: [
     { label: "Services", href: "/services" },
@@ -43,18 +43,30 @@ export default function Footer() {
           {/* Links */}
           {Object.entries(footerLinks).map(([group, links]) => (
             <div key={group}>
-              <p className="text-sm font-semibold text-foreground mb-4">
+              <h3 className="text-sm font-semibold text-foreground mb-4">
                 {group}
-              </p>
+              </h3>
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-                    >
-                      {link.label}
-                    </Link>
+                    {link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                      >
+                        {link.label}
+                        <span className="sr-only"> (opens in new tab)</span>
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -76,6 +88,7 @@ export default function Footer() {
               className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200"
             >
               Privacy Policy
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
             <a
               href="https://vengage.i79.ai/terms"
@@ -84,6 +97,7 @@ export default function Footer() {
               className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200"
             >
               Terms of Service
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
           </div>
         </div>

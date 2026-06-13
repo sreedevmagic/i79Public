@@ -8,11 +8,11 @@ export const metadata: Metadata = buildMetadata(
   {
     title: "Pricing – i79 Engage AI Hiring Platform",
     description:
-      "Start free — no credit card required. Scale with Growth, Scale, or Enterprise plans tailored to your hiring volume. Contact us for custom pricing.",
+      "Three plans built around your hiring volume — Starter, Growth, and Enterprise. Contact us for pricing tailored to your team.",
     openGraph: {
       title: "Pricing – i79 Engage",
       description:
-        "Transparent, credit-based pricing for AI hiring automation. Free plan available. Contact us for Growth, Scale, and Enterprise pricing.",
+        "Transparent, credit-based pricing for AI hiring automation. Starter, Growth, and Enterprise plans available. Contact us for pricing.",
     },
   },
   {
@@ -36,8 +36,8 @@ export default function PricingPage() {
         subtext="Talk to our team — we'll help you find the right fit for your hiring volume and workflow."
         primaryLabel="Talk to Us"
         primaryHref="/contact"
-        secondaryLabel="Start Free"
-        secondaryHref="https://vengage.i79.ai/register"
+        secondaryLabel="Book a Demo"
+        secondaryHref="/contact"
       />
     </>
   );

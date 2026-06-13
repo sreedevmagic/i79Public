@@ -14,7 +14,7 @@ export default function PricingHero() {
           pricing
         </h1>
         <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-          Start free. Scale as you hire. Enterprise pricing is custom — just{" "}
+          Three plans built around your hiring volume. Enterprise pricing is custom — just{" "}
           <a href="/contact" className="text-primary hover:underline">
             contact us
           </a>

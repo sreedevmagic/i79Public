@@ -26,6 +26,8 @@ export default function EngageHero() {
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <Button
               href="https://vengage.i79.ai/register"
+              target="_blank"
+              rel="noopener noreferrer"
               variant="primary"
               size="lg"
             >
@@ -42,8 +44,8 @@ export default function EngageHero() {
           </div>
         </div>
 
-        {/* Right: Product UI visual */}
-        <div className="relative">
+        {/* Right: Product UI visual — decorative, hidden from assistive tech */}
+        <div className="relative" aria-hidden="true">
           <div className="rounded-2xl border border-border bg-card p-6 shadow-2xl shadow-primary/10 glow-primary">
             {/* Mock dashboard UI */}
             <div className="flex items-center gap-2 mb-5">
@@ -99,7 +101,7 @@ export default function EngageHero() {
 
           {/* Glow behind card */}
           <div
-            aria-hidden
+            aria-hidden="true"
             className="absolute -inset-4 -z-10 rounded-3xl bg-primary/8 blur-2xl"
           />
         </div>

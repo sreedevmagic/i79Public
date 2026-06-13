@@ -6,13 +6,13 @@ const integrations = [
     name: "Google Calendar",
     description: "Sync interview slots and hiring events directly to Google Calendar.",
     icon: "G",
-    color: "bg-blue-500/10 text-blue-400",
+    color: "bg-info/10 text-info",
   },
   {
     name: "Microsoft Outlook",
     description: "Connect Outlook to coordinate interviews and follow-ups automatically.",
     icon: "O",
-    color: "bg-sky-500/10 text-sky-400",
+    color: "bg-info/10 text-info",
   },
 ];
 

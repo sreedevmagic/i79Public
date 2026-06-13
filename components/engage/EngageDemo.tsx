@@ -19,13 +19,12 @@ export default function EngageDemo() {
       <div className="relative rounded-3xl border border-border bg-card overflow-hidden aspect-video max-w-4xl mx-auto shadow-2xl shadow-primary/10">
         {/* Mock background gradient */}
         <div
-          aria-hidden
+          aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-br from-primary/8 via-card to-accent/5"
         />
 
-        {/* Mock UI preview */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 p-8">
-          {/* Mock browser chrome */}
+        {/* Mock UI preview — decorative chrome only, hidden from assistive tech */}
+        <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center p-8 pointer-events-none">
           <div className="w-full max-w-lg rounded-2xl border border-border bg-background/60 backdrop-blur-sm p-4 opacity-60">
             <div className="flex items-center gap-2 mb-3">
               <div className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
@@ -52,18 +51,21 @@ export default function EngageDemo() {
               ))}
             </div>
           </div>
+        </div>
 
-          {/* Play button overlay */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-5">
-            <div className="w-20 h-20 rounded-full bg-primary/20 border-2 border-primary/40 flex items-center justify-center backdrop-blur-sm cursor-pointer hover:bg-primary/30 transition-colors group">
-              <Play size={28} className="text-primary ml-1 group-hover:scale-110 transition-transform" fill="currentColor" />
-            </div>
-            <div className="text-center">
-              <p className="text-sm font-semibold text-foreground">Product demo coming soon</p>
-              <p className="text-xs text-muted-foreground mt-1">
-                Book a live walkthrough with our team in the meantime
-              </p>
-            </div>
+        {/* Play button overlay — accessible, NOT aria-hidden */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-5">
+          <button
+            aria-label="Play product demo video"
+            className="w-20 h-20 rounded-full bg-primary/20 border-2 border-primary/40 flex items-center justify-center backdrop-blur-sm hover:bg-primary/30 transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          >
+            <Play size={28} className="text-primary ml-1 group-hover:scale-110 transition-transform" fill="currentColor" />
+          </button>
+          <div className="text-center">
+            <p className="text-sm font-semibold text-foreground">Product demo coming soon</p>
+            <p className="text-xs text-muted-foreground mt-1">
+              Book a live walkthrough with our team in the meantime
+            </p>
           </div>
         </div>
       </div>
@@ -74,7 +76,7 @@ export default function EngageDemo() {
           <Calendar size={16} className="mr-2" />
           Book a Live Demo
         </Button>
-        <Button href="https://vengage.i79.ai/register" variant="outline" size="md">
+        <Button href="https://vengage.i79.ai/register" target="_blank" rel="noopener noreferrer" variant="outline" size="md">
           Start Free Trial <ArrowRight size={15} className="ml-2" />
         </Button>
       </div>

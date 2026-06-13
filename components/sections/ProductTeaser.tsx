@@ -5,9 +5,9 @@ import { ArrowRight, Search, BarChart3, Mic, FileText, LayoutDashboard, LayoutTe
 const groups = [
   {
     label: "Source & Screen",
-    color: "text-blue-400",
-    bg: "bg-blue-400/10",
-    border: "border-blue-400/20",
+    color: "text-info",
+    bg: "bg-info/10",
+    border: "border-info/20",
     items: [
       { icon: Search, title: "AI Sourcing & Outreach", badge: "Advanced", desc: "Surface matching candidates before they reach a job board." },
       { icon: BarChart3, title: "Candidate Scoring", desc: "Every applicant automatically scored on arrival against job criteria." },
@@ -25,9 +25,9 @@ const groups = [
   },
   {
     label: "Decide & Act",
-    color: "text-emerald-400",
-    bg: "bg-emerald-400/10",
-    border: "border-emerald-400/20",
+    color: "text-success",
+    bg: "bg-success/10",
+    border: "border-success/20",
     items: [
       { icon: LayoutDashboard, title: "Decision Packs", desc: "One consolidated view per candidate — everything stakeholders need to decide." },
       { icon: LayoutTemplate, title: "Branded Career Page", badge: "Advanced", desc: "SEO-indexed career page live the moment you publish a role." },
@@ -90,7 +90,7 @@ export default function ProductTeaser() {
         <Button href="/engage" variant="primary" size="md">
           Explore the Full Platform <ArrowRight size={15} className="ml-2" />
         </Button>
-        <Button href="https://vengage.i79.ai/register" variant="outline" size="md">
+        <Button href="https://vengage.i79.ai/register" target="_blank" rel="noopener noreferrer" variant="outline" size="md">
           Start Free Trial
         </Button>
       </div>

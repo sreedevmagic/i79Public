@@ -66,26 +66,30 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-            Name
+            Name <span aria-hidden="true" className="text-destructive">*</span>
           </label>
           <input
             id="name"
             name="name"
             type="text"
             required
+            aria-required="true"
+            autoComplete="name"
             placeholder="Your full name"
             className={inputClass}
           />
         </div>
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-            Email
+            Email <span aria-hidden="true" className="text-destructive">*</span>
           </label>
           <input
             id="email"
             name="email"
             type="email"
             required
+            aria-required="true"
+            autoComplete="email"
             placeholder="you@company.com"
             className={inputClass}
           />
@@ -100,6 +104,7 @@ export default function ContactForm() {
           id="company"
           name="company"
           type="text"
+          autoComplete="organization"
           placeholder="Your organization"
           className={inputClass}
         />
@@ -107,12 +112,13 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-          Message
+          Message <span aria-hidden="true" className="text-destructive">*</span>
         </label>
         <textarea
           id="message"
           name="message"
           required
+          aria-required="true"
           rows={5}
           placeholder="Tell us about your project or challenge..."
           className={cn(inputClass, "resize-none")}
@@ -120,7 +126,12 @@ export default function ContactForm() {
       </div>
 
       {error && (
-        <div className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive text-sm">
+        <div
+          id="form-error"
+          role="alert"
+          aria-live="polite"
+          className="flex items-start gap-2.5 px-4 py-3 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive text-sm"
+        >
           <AlertCircle size={16} className="flex-shrink-0 mt-0.5" />
           {error}
         </div>

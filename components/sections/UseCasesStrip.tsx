@@ -94,12 +94,16 @@ export default function UseCasesStrip() {
 
               {/* CTA */}
               <div className="mt-auto flex items-center justify-between pt-4 border-t border-border">
-                <a
+                <Button
                   href={uc.ctaHref}
-                  className="text-sm font-medium text-primary hover:opacity-80 transition-opacity"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="ghost"
+                  size="sm"
+                  className="text-primary hover:text-primary px-0"
                 >
                   {uc.ctaLabel}
-                </a>
+                </Button>
                 <Link
                   href={uc.href}
                   className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors"

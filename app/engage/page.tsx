@@ -49,9 +49,7 @@ const engageSchema = {
   url: "https://i79.ai/engage",
   offers: {
     "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-    description: "Free trial available — no credit card required",
+    description: "Contact us for Starter, Growth, and Enterprise pricing tailored to your hiring volume.",
   },
   featureList: [
     "Automated hiring pipeline",

@@ -6,8 +6,10 @@ interface CTAProps {
   subtext?: string;
   primaryLabel?: string;
   primaryHref?: string;
+  primaryExternal?: boolean;
   secondaryLabel?: string;
   secondaryHref?: string;
+  secondaryExternal?: boolean;
 }
 
 export default function CTA({
@@ -15,14 +17,16 @@ export default function CTA({
   subtext = "Ready to transform your organization with production-grade AI? Let's talk.",
   primaryLabel = "Talk to Us",
   primaryHref = "/contact",
+  primaryExternal = false,
   secondaryLabel = "Explore Services",
   secondaryHref = "/services",
+  secondaryExternal = false,
 }: CTAProps) {
   return (
     <SectionWrapper className="relative overflow-hidden">
       {/* Glow */}
       <div
-        aria-hidden
+        aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10"
       >
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full bg-primary/8 blur-3xl" />
@@ -30,7 +34,7 @@ export default function CTA({
 
       <div className="relative rounded-3xl border border-border bg-card p-12 md:p-20 text-center overflow-hidden">
         <div
-          aria-hidden
+          aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"
         />
 
@@ -41,11 +45,23 @@ export default function CTA({
           {subtext}
         </p>
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button href={primaryHref} variant="primary" size="lg">
+          <Button
+            href={primaryHref}
+            target={primaryExternal ? "_blank" : undefined}
+            rel={primaryExternal ? "noopener noreferrer" : undefined}
+            variant="primary"
+            size="lg"
+          >
             {primaryLabel}
           </Button>
           {secondaryLabel && (
-            <Button href={secondaryHref} variant="outline" size="lg">
+            <Button
+              href={secondaryHref}
+              target={secondaryExternal ? "_blank" : undefined}
+              rel={secondaryExternal ? "noopener noreferrer" : undefined}
+              variant="outline"
+              size="lg"
+            >
               {secondaryLabel}
             </Button>
           )}

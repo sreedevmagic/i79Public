@@ -57,6 +57,14 @@ const services = [
 export default function ServicesFullGrid() {
   return (
     <SectionWrapper>
+      <div className="text-center mb-14">
+        <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
+          What we do
+        </h2>
+        <p className="mt-4 text-base text-muted-foreground max-w-xl mx-auto">
+          From strategy to live deployment — we cover the full spectrum of enterprise AI.
+        </p>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((service) => {
           const Icon = service.icon;
